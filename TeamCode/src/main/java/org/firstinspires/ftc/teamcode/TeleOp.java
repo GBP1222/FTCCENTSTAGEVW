@@ -33,7 +33,7 @@ public class TeleOp extends OpMode {
         RightFront.setPower(0);
         RightBack.setPower(0);
 
-        ServoExemplu.setPosition(0);
+        ServoExemplu.setPosition(0.5);
 
         LeftFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         LeftBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
@@ -67,6 +67,9 @@ public class TeleOp extends OpMode {
         RightFront.setPower(RightFrontPower); // -
         RightBack.setPower(RightBackPower);   // +
 
+        if(gamepad1.a) ServoExemplu.setPosition(1);
+        else if(gamepad1.y) ServoExemplu.setPosition(0);
+        else ServoExemplu.setPosition(0.50);
         telemetry.addData("ServoExemplu", ServoExemplu.getPosition());
 
     }
